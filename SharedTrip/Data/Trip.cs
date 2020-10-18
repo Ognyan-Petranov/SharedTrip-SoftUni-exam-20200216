@@ -7,6 +7,11 @@ namespace SharedTrip.Data
 {
    public class Trip
     {
+        public Trip()
+        {
+            this.Users = new HashSet<UserTrips>();
+        }
+
         [Key]
         public int TripId { get; set; }
 

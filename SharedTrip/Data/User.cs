@@ -10,6 +10,7 @@ namespace SharedTrip.Data
         public User()
         {
             this.UserId = Guid.NewGuid().ToString();
+            this.Trips = new HashSet<UserTrips>();
         }
 
         [Key]
