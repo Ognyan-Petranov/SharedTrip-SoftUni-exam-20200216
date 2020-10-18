@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using Microsoft.EntityFrameworkCore;
+    using SharedTrip.Services;
     using SIS.HTTP;
     using SIS.MvcFramework;
 
@@ -9,12 +10,13 @@
     {
         public void Configure(IList<Route> routeTable)
         {
-           
+            new ApplicationDbContext().Database.Migrate();
         }
 
         public void ConfigureServices(IServiceCollection serviceCollection)
         {
-            new ApplicationDbContext().Database.Migrate();
+            serviceCollection.Add<IUserServices, UserServices>();
+            serviceCollection.Add<ITripServices, TripServices>();
         }
     }
 }
