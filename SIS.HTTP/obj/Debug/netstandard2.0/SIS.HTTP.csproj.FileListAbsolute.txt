@@ -1,0 +1,9 @@
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\bin\Debug\netstandard2.0\SIS.HTTP.deps.json
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\bin\Debug\netstandard2.0\SIS.HTTP.dll
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\bin\Debug\netstandard2.0\SIS.HTTP.pdb
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.AssemblyInfoInputs.cache
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.AssemblyInfo.cs
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.dll
+C:\Users\HP\Desktop\SharedTrip\01. Shared Trip_Resources\SIS.HTTP\obj\Debug\netstandard2.0\SIS.HTTP.pdb
