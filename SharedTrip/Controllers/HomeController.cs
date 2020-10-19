@@ -8,6 +8,10 @@
         [HttpGet("/")]
         public HttpResponse Index()
         {
+            if (this.IsUserLoggedIn())
+            {
+                return this.Redirect("/Trips/All");
+            }
             return this.View();
         }
     }

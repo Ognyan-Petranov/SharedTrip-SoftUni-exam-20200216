@@ -41,7 +41,7 @@ namespace SharedTrip.Controllers
             {
                 return this.Error("Invalid username or password!");
             }
-            //TODO: Some logic here
+
             this.SignIn(userId);
             return this.Redirect("/Trips/All");
         }

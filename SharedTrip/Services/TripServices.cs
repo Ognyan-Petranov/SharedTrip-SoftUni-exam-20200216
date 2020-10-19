@@ -38,7 +38,7 @@ namespace SharedTrip.Services
             return this.dbContext.Trips.Select(x => new TripViewModel() { 
             StartPoint = x.StartPoint,
             EndPoint = x.EndPoint,
-            DepartureTime = x.DepartureTime,
+            DepartureTime = x.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
             Seats = x.Seats,
             Description = x.Description,
             ImagePath = x.ImagePath
@@ -51,7 +51,7 @@ namespace SharedTrip.Services
             {
                 StartPoint = x.Trip.StartPoint,
                 EndPoint = x.Trip.EndPoint,
-                DepartureTime = x.Trip.DepartureTime,
+                DepartureTime = x.Trip.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
                 Seats = x.Trip.Seats,
                 Description = x.Trip.Description,
                 ImagePath = x.Trip.ImagePath

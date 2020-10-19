@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace SharedTrip.ViewModels
 {
     public class TripViewModel
@@ -12,7 +9,7 @@ namespace SharedTrip.ViewModels
 
         public string EndPoint { get; set; }
 
-        public DateTime DepartureTime { get; set; }
+        public string DepartureTime { get; set; }
 
         public int Seats { get; set; }
 
