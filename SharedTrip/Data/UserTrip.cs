@@ -1,6 +1,6 @@
 ﻿namespace SharedTrip.Data
 {
-    public class UserTrips
+    public class UserTrip
     {
         public string UserId { get; set; }
         public User User { get; set; }

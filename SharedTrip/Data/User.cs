@@ -10,7 +10,7 @@ namespace SharedTrip.Data
         public User()
         {
             this.UserId = Guid.NewGuid().ToString();
-            this.Trips = new HashSet<UserTrips>();
+            this.Trips = new HashSet<UserTrip>();
         }
 
         [Key]
@@ -27,6 +27,6 @@ namespace SharedTrip.Data
         [Required]
         public string Password { get; set; }
 
-        public ICollection<UserTrips> Trips { get; set; }
+        public ICollection<UserTrip> Trips { get; set; }
     }
 }

@@ -12,5 +12,9 @@ namespace SharedTrip.Services
         IEnumerable<TripViewModel> GetAllTrips();
 
         IEnumerable<TripViewModel> GetAllTripsByUser(string userId);
+
+        TripViewModel GetTripById(int Id);
+
+        bool AddUserToTrip(string userId, int tripId);
     }
 }

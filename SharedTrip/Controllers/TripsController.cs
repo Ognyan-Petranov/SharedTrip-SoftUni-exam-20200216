@@ -1,4 +1,5 @@
-﻿using SharedTrip.Services;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using SharedTrip.Services;
 using SharedTrip.ViewModels;
 using SIS.HTTP;
 using SIS.MvcFramework;
@@ -68,7 +69,6 @@ namespace SharedTrip.Controllers
             return this.Redirect("/Trips/All");
         }
 
-        [HttpGet]
         public HttpResponse All()
         {
             if (!this.IsUserLoggedIn())
@@ -79,15 +79,26 @@ namespace SharedTrip.Controllers
             return this.View(trips);
         }
 
-        [HttpGet]
-        public HttpResponse Details()
+        public HttpResponse Details(int tripId)
+        {
+            if (!this.IsUserLoggedIn())
+            {
+                return this.Redirect("/Users/Login");
+            }
+            var view = this.tripServices.GetTripById(tripId); 
+            return this.View(view);
+        }
+
+        public HttpResponse AddUserToTrip(int tripId)
         {
             if (!this.IsUserLoggedIn())
             {
                 return this.Redirect("/Users/Login");
             }
 
-            return this.View();
+            string userId = this.User;
+            this.tripServices.AddUserToTrip(userId, tripId);
+            return this.Redirect("/Trips/All");
         }
     }
 }

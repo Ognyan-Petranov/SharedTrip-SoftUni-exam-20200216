@@ -9,7 +9,7 @@ namespace SharedTrip.Data
     {
         public Trip()
         {
-            this.Users = new HashSet<UserTrips>();
+            this.Users = new HashSet<UserTrip>();
         }
 
         [Key]
@@ -34,6 +34,6 @@ namespace SharedTrip.Data
 
         public string ImagePath { get; set; }
 
-        public ICollection<UserTrips> Users { get; set; }
+        public ICollection<UserTrip> Users { get; set; }
     }
 }

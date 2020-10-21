@@ -19,13 +19,14 @@ namespace SharedTrip.Services
 
         public int AddTrip(string startPoint, string endPoint, DateTime departureTime, int seats, string description, string imagePath)
         {
-            var trip = new Trip() {
-            StartPoint = startPoint,
-            EndPoint = endPoint,
-            DepartureTime = departureTime,
-            Seats = seats,
-            Description = description,
-            ImagePath = imagePath
+            var trip = new Trip()
+            {
+                StartPoint = startPoint,
+                EndPoint = endPoint,
+                DepartureTime = departureTime,
+                Seats = seats,
+                Description = description,
+                ImagePath = imagePath
             };
 
             this.dbContext.Trips.Add(trip);
@@ -35,13 +36,15 @@ namespace SharedTrip.Services
 
         public IEnumerable<TripViewModel> GetAllTrips()
         {
-            return this.dbContext.Trips.Select(x => new TripViewModel() { 
-            StartPoint = x.StartPoint,
-            EndPoint = x.EndPoint,
-            DepartureTime = x.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
-            Seats = x.Seats,
-            Description = x.Description,
-            ImagePath = x.ImagePath
+            return this.dbContext.Trips.Select(x => new TripViewModel()
+            {
+                Id = x.TripId,
+                StartPoint = x.StartPoint,
+                EndPoint = x.EndPoint,
+                DepartureTime = x.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
+                Seats = x.Seats,
+                Description = x.Description,
+                ImagePath = x.ImagePath
             }).ToList();
         }
 
@@ -49,6 +52,7 @@ namespace SharedTrip.Services
         {
             return this.dbContext.UserTrips.Where(u => u.UserId == userId).Select(x => new TripViewModel()
             {
+                Id = x.TripId,
                 StartPoint = x.Trip.StartPoint,
                 EndPoint = x.Trip.EndPoint,
                 DepartureTime = x.Trip.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
@@ -56,6 +60,43 @@ namespace SharedTrip.Services
                 Description = x.Trip.Description,
                 ImagePath = x.Trip.ImagePath
             }).ToList();
+        }
+
+        public TripViewModel GetTripById(int tripId)
+        {
+            var trip = this.dbContext.Trips
+                .Where(x => x.TripId == tripId)
+                .Select(x => new TripViewModel()
+                {
+                    Id = x.TripId,
+                    StartPoint = x.StartPoint,
+                    EndPoint = x.EndPoint,
+                    DepartureTime = x.DepartureTime.ToString("dd.MM.yyyy HH:mm"),
+                    Description = x.Description,
+                    Seats = x.Seats,
+                    ImagePath = x.ImagePath
+                })
+                .FirstOrDefault();
+
+            return trip;
+        }
+
+        public bool AddUserToTrip(string userId, int tripId)
+        {
+            var userInTrip = this.dbContext.UserTrips.Any(x => x.UserId == userId && x.TripId == tripId);
+            if (userInTrip)
+            {
+                return false;
+            }
+
+            var userTrip = new UserTrip
+            {
+                TripId = tripId,
+                UserId = userId,
+            };
+            this.dbContext.UserTrips.Add(userTrip);
+            this.dbContext.SaveChanges();
+            return true;
         }
     }
 }

@@ -9,7 +9,7 @@
 
         public DbSet<Trip> Trips { get; set; }
 
-        public DbSet<UserTrips> UserTrips { get; set; }
+        public DbSet<UserTrip> UserTrips { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,7 +20,7 @@
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UserTrips>().HasKey(x => new { x.UserId, x.TripId });
+            modelBuilder.Entity<UserTrip>().HasKey(x => new { x.UserId, x.TripId });
             base.OnModelCreating(modelBuilder);
         }
     }
